@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      4h
+    </title>
+  </head>
+
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script type="text/babel">
+      function App(){
+        const[count,setCount]=React.useState(0);
+        const counterRef=React.useRef(null);
+
+        function enableAutoClick(){
+          const counterElem=counterRef.current;
+          setInterval(()=>{
+            counterElem.click();
+          },1000)
+        }
+        
+        return(
+          <>
+            <button 
+            ref={counterRef}
+            onClick={
+              ()=>{
+                setCount(count+1)
+              }
+            }>
+              Clicked {count} times
+            </button>
+
+            <button onClick={
+              ()=>{
+                setCount(0)
+              }
+            }>Reset</button>
+
+            <button onClick={enableAutoClick}>
+              Auto Click
+            </button>
+          </>
+        )
+      }
+
+      const container=document.querySelector('.js-container')
+      ReactDOM.createRoot(container).render(<App />)
+    </script>
+  </body>
+</html>

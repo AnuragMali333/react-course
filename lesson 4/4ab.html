@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      4a
+    </title>
+
+    <style>
+      .onButton{
+        background-color: rgb(25, 135, 84);
+        color: white;
+        border: none;
+        padding: 10px 12px;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      function App(){
+        const[buttonState,setButtonState]=React.useState(true);
+        
+        return(
+          <button className="onButton"
+            onClick={()=>{
+              buttonState===true?
+              setButtonState(false) :
+              setButtonState(true);
+            }}
+          >
+            ON
+          </button>
+        );
+      }
+
+      const container=document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+
+    </script>
+  </body>
+</html>

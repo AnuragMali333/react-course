@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      4d
+    </title>
+
+    <style>
+      .heading{
+        font-size: 40px;
+        margin: 0px;
+      }
+
+      .input-field{
+        padding: 12px 15px;
+        border-radius: 10px;
+        border-width: 1px;
+        font-size: 15px;
+        margin: 5px 0px;
+      }
+      
+      .buttons{
+        background-color: rgb(0, 123, 255);
+        border: none;
+        color: white;
+        margin: 10px 5px;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      function LoginForm(){
+        return(
+          <>
+            <p className="heading">
+              Hello, welcome to my website
+            </p>
+
+            <div>
+              <input 
+              type="text"
+              placeholder="Email"
+              className="input-field"    
+            />
+            </div>
+            
+            <div>
+              <input 
+              type="text"
+              placeholder="Password"
+              className="input-field"     
+            />
+            </div>
+            
+              <button className="buttons">Login</button>
+              <button className="buttons">Sign up</button>
+          </>
+        );
+      }
+
+      function App(){
+        return(
+          <LoginForm />
+        )
+      }
+
+      const container=document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

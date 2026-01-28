@@ -9,7 +9,7 @@
   <style>
     body{
       font-family: Arial;
-      margin-top: 0px;
+      margin-top: 0px; 
       margin-bottom: 0px;
     }
     .send-button{
@@ -197,8 +197,20 @@
     }
 
     function ChatMessages({ chatMessages }) {
+      const chatMessagesRef=React.useRef(null);
+
+      React.useEffect(()=>{
+        const containerElem=(chatMessagesRef.current);
+        if(containerElem){
+          containerElem.scrollTop=containerElem.scrollHeight;
+        }
+      },[chatMessages] )
+
       return (
-        <div className="chat-messages-container">
+        <div 
+          className="chat-messages-container"
+          ref={chatMessagesRef}
+          >
           {chatMessages.map((chatMessage) => {
             return (
               <ChatMessage
@@ -215,34 +227,17 @@
 
     function App() {
 
-      const [chatMessages, setChatMessages] = React.useState([// Array Destructuring
-        {
-          message: 'hello Chatbot',
-          sender: 'user',
-          id: 'id1'
-        },
-        {
-          message: 'Hello! How can I help you',
-          sender: 'robot',
-          id: 'id2'
-        },
-        {
-          message: 'can you get me todays date?',
-          sender: 'user',
-          id: 'id3'
-        },
-        {
-          message: 'Today is September 27',
-          sender: 'robot',
-          id: 'id4'
-        }
-      ]);
+      const [chatMessages, setChatMessages] = React.useState([]);// Array Destructuring
       //const[chatMessages,setChatMessages]=array;//Array Destructuring
       //const chatMessages=array[0];// current data
       //const setChatMessages=array[1];// updater function
 
       return (
         <div className="app-container">
+          <p>{chatMessages.length===0?
+              "Welcome to the chatbot project! Send a message using the textbox below":
+              ""
+          }</p>
           <ChatMessages
             chatMessages={chatMessages}
           />
