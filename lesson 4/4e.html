@@ -6,27 +6,7 @@
     </title>
 
     <style>
-      .heading{
-        font-size: 40px;
-        margin: 0px;
-      }
 
-      .input-field{
-        padding: 12px 15px;
-        border-radius: 10px;
-        border-width: 1px;
-        font-size: 15px;
-        margin: 5px;
-      }
-      
-      .buttons{
-        background-color: rgb(0, 123, 255);
-        border: none;
-        color: white;
-        margin: 10px 5px;
-        padding: 10px 15px;
-        border-radius: 5px;
-      }
 
     </style>
   </head>
@@ -40,57 +20,7 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
-      function LoginForm(){
-
-        const [showPassword,setShowpassword]=React.useState(true);
-
-        return(
-          <>
-            <p className="heading">
-              Hello, welcome to my website
-            </p>
-
-            <div>
-              <input 
-              type="text"
-              placeholder="Email"
-              className="input-field"    
-            />
-            </div>
-            
-            <div>
-              <input 
-              type={
-                showPassword===true?
-                "text":
-                "password"
-              }
-              placeholder="Password"
-              className="input-field"     
-            />
-              <button onClick={
-                ()=>{
-                  showPassword===true?
-                  setShowpassword(false):
-                  setShowpassword(true)
-                  console.log(showPassword);  
-                }}>
-
-                Hide
-              </button>
-            </div>
-            
-              <button className="buttons">Login</button>
-              <button className="buttons">Sign up</button>
-          </>
-        );
-      }
-
-      function App(){
-        return(
-          <LoginForm />
-        )
-      }
+      
 
       const container=document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(<App />);
