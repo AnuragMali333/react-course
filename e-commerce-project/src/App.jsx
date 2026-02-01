@@ -5,8 +5,7 @@ import { OrdersPage } from './pages/OrdersPage'
 import './App.css'
 
 function App() {
-
-
+  
   return (
     <Routes>
       <Route index element={<HomePage />} />
