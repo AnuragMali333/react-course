@@ -1,6 +1,6 @@
 import { formatMoney } from "../../utils/money";
 
-export function CartItemDetails({cartItem}) {
+export function CartItemDetails({ cartItem }) {
   return (
     <>
       <img className="product-image"
@@ -15,7 +15,7 @@ export function CartItemDetails({cartItem}) {
         </div>
         <div className="product-quantity">
           <span>
-            Quantity: <span className="quantity-label">2</span>
+            Quantity: <span className="quantity-label">{cartItem.quantity}</span>
           </span>
           <span className="update-quantity-link link-primary">
             Update
